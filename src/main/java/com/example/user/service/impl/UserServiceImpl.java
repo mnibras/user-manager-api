@@ -27,7 +27,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.transaction.Transactional;
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -149,7 +148,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     public void resetPassword(String email) throws EmailNotFoundException {
         User user = userRepository.findUserByEmail(email);
-        if(user == null) {
+        if (user == null) {
             throw new EmailNotFoundException("No user found for email: " + email);
         }
         String password = generatePassword();
@@ -242,9 +241,9 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     private void saveProfileImage(User user, MultipartFile profileImage) throws IOException {
-        if(profileImage != null) {
+        if (profileImage != null) {
             Path userFolder = Paths.get(USER_FOLDER + user.getUsername()).toAbsolutePath().normalize();
-            if(!Files.exists(userFolder)) {
+            if (!Files.exists(userFolder)) {
                 Files.createDirectories(userFolder);
                 LOGGER.info(DIRECTORY_CREATED, userFolder);
             }

@@ -1,12 +1,10 @@
 package com.example.user.service;
 
 import com.example.user.domain.User;
-import com.example.user.domain.UserPrincipal;
 import com.example.user.exception.EmailExistException;
 import com.example.user.exception.EmailNotFoundException;
 import com.example.user.exception.UserNotFoundException;
 import com.example.user.exception.UsernameExistException;
-import org.springframework.http.HttpHeaders;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;

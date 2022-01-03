@@ -130,7 +130,7 @@ public class UserController extends ExceptionManager {
         try (InputStream inputStream = url.openStream()) {
             int bytesRead;
             byte[] chunk = new byte[1024];
-            while((bytesRead = inputStream.read(chunk)) > 0) {
+            while ((bytesRead = inputStream.read(chunk)) > 0) {
                 byteArrayOutputStream.write(chunk, 0, bytesRead);
             }
         }
